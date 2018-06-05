@@ -1,0 +1,39 @@
+// Here you can add other styles
+div.img-full-login{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+div#back-div{
+  background-color: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+}
+div.img-full-login img{
+  object-fit: cover;
+  object-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+}
+div.bg-login{
+  /*background-color: #3a7adbb5!important;*/
+  background-color: #e7352dbf!important;
+  border-color: #ca6a42!important;
+}
+div.bg-login button, button#btn-login{
+  border-color: #000!important;
+  background-color: #c2d80d!important;
+}
+.btn-link-login{
+  color: #c2d80d;
+}
+.btn-link-login:hover{
+  color: #000;
+}
+div.bg-login button:hover, button#btn-login:hover {
+  border-color: #000 !important;
+  background-color: #899909 !important;
+}
