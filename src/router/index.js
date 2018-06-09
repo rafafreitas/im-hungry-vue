@@ -16,6 +16,7 @@ import Faturamento from '@/views/temp/Temp3'
 
 // Views - Pages
 import Login from '@/views/pages/Login'
+import Forbidden from '@/views/pages/Page404'
 
 Vue.use(Router)
 
@@ -39,17 +40,34 @@ export default new Router({
     {
       name: 'Login',
       path: '/login',
-      component: Login
+      component: Login,
+      meta: {
+        auth: false,
+        userType: null
+      }
     },
     {
-      name: 'Dashboard',
+      name: 'Forbidden',
+      path: '/forbidden',
+      component: Forbidden,
+      meta: {
+        auth: false,
+        userType: null
+      }
+    },
+    {
+      name: 'Home',
       path: '/',
       component: DefaultContainer,
       children: [
         {
-          path: 'dashboard',
           name: 'Dashboard',
-          component: Dashboard
+          path: 'dashboard',
+          component: Dashboard,
+          meta: {
+            auth: true,
+            userType: null
+          }
         },
         {
           path: 'company',
@@ -62,29 +80,49 @@ export default new Router({
             {
               path: 'my-company',
               name: 'Empresas',
-              component: Company
+              component: Company,
+              meta: {
+                auth: true,
+                userType: 1
+              }
             },
             {
               path: 'filiais',
               name: 'Filiais',
-              component: Filial
+              component: Filial,
+              meta: {
+                auth: true,
+                userType: 1
+              }
             }
           ]
         },
         {
           path: 'pedidos',
           name: 'Pedidos',
-          component: Pedidos
+          component: Pedidos,
+          meta: {
+            auth: true,
+            userType: 2
+          }
         },
         {
           path: 'relatorios',
           name: 'Relatorios',
-          component: Relatorio
+          component: Relatorio,
+          meta: {
+            auth: true,
+            userType: 1
+          }
         },
         {
           path: 'faturamentos',
           name: 'Faturamentos',
-          component: Faturamento
+          component: Faturamento,
+          meta: {
+            auth: true,
+            userType: 1
+          }
         }
       ]
     }
