@@ -25,9 +25,6 @@ router.beforeEach((to, from, next) => {
   if (to.meta.userType !== null && to.meta.userType !== store.state.userType) {
     next({path: 'forbidden'})
   }
-  console.log('Router-Store-Auth', store.state.auth)
-  console.log('Router-Store-UserType', store.state.userType)
-  console.log('Router-Store-Meta', to.meta)
   next()
 })
 
