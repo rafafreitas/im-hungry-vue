@@ -79,12 +79,12 @@ import { Header as AppHeader, HeaderDropdown as AppHeaderDropdown, SidebarToggle
 // import { Header as AppHeader, HeaderDropdown as AppHeaderDropdown, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Breadcrumb } from '../components/'
 // import { Footer as TheFooter } from '@coreui/vue'
 import DafaultAside from './DafaultAside'
-import store from '../store'
+// import store from '../store'
 
 export default {
   data () {
     return {
-      nav: nav.menu[store.state.userType - 1],
+      nav: nav.methods.newMenu(),
       itemsCount: 42
     }
   },
