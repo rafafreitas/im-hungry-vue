@@ -80,12 +80,11 @@ import { Header as AppHeader, HeaderDropdown as AppHeaderDropdown, SidebarToggle
 // import { Footer as TheFooter } from '@coreui/vue'
 import DafaultAside from './DafaultAside'
 import store from '../store'
+
 export default {
   data () {
-    console.log('Container-Nav', nav)
-    console.log('Container-Store-User', store.state.userType)
     return {
-      nav: nav.methods.newMenu(),
+      nav: nav.menu[store.state.userType - 1],
       itemsCount: 42
     }
   },

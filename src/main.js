@@ -19,7 +19,7 @@ Vue.http.options.root = process.env.API
 Vue.http.headers.common['Authorization'] = store.state.token
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.auth && to.meta.auth !== store.state.auth) {
+  if (to.meta.auth && !store.state.auth) {
     next({path: '/login'})
   }
   if (to.meta.userType !== null && to.meta.userType !== store.state.userType) {
@@ -28,7 +28,6 @@ router.beforeEach((to, from, next) => {
   console.log('Router-Store-Auth', store.state.auth)
   console.log('Router-Store-UserType', store.state.userType)
   console.log('Router-Store-Meta', to.meta)
-  console.log('Router-From', from)
   next()
 })
 

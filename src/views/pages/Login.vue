@@ -68,7 +68,7 @@ export default {
       this.$http.post('usuario/login', data).then(function (r) {
         console.log('Response', r)
         if (r.status === 200 && r.body.message === 'SUCCESS') {
-          store.commit('setUserType', r.body.usuario.tipo_id)
+          store.commit('setUserType', parseInt(r.body.usuario.tipo_id))
           store.commit('setToken', r.body.token)
           store.commit('setAuth', true)
           this.$root.$data.auth = true
