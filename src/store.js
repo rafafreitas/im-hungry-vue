@@ -3,25 +3,28 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const state = {
-  auth: false,
-  userType: 0,
-  token: 'token'
-}
-
-const mutations = {
-  setAuth (state, newAuth) {
-    state.auth = newAuth
+const store = new Vuex.Store({
+  state: {
+    auth: false,
+    userType: 0,
+    token: 'token'
   },
-  setUserType (state, newType) {
-    state.userType = newType
+  mutations: {
+    setAuth (state, newAuth) {
+      state.auth = newAuth
+    },
+    setUserType (state, newType) {
+      state.userType = newType
+    },
+    setToken (state, newToken) {
+      state.token = newToken
+    }
   },
-  setToken (state, newToken) {
-    state.token = newToken
+  getters: {
+    userType: state => {
+      return state.userType
+    }
   }
-}
-
-export default new Vuex.Store({
-  state,
-  mutations
 })
+
+export default store
